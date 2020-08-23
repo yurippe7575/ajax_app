@@ -1,10 +1,6 @@
 function check() {
   const posts = document.querySelectorAll(".post");
   posts.forEach(function (post) {
-     if (post.getAttribute("data-load") != null) {
-      return null;
-    }
-    post.setAttribute("data-load", "true");
     post.addEventListener("click", () => {
       const postId = post.getAttribute("data-id");
       const XHR = new XMLHttpRequest();
@@ -26,4 +22,4 @@ function check() {
     });
   });
 }
-setInterval(check, 1000);
+window.addEventListener("load", check);
